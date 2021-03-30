@@ -11,7 +11,7 @@
 /resources
 # testing
 /coverage
-
+/cmd/server/server
 
 # production
 /build

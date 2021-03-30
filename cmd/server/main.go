@@ -12,8 +12,6 @@ func main() {
 		panic(err)
 	}
 
-
-
 	err = r.Run(fmt.Sprintf(":%d",8080))
 
 	//static, _ := file.ReadStatic()
