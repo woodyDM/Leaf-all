@@ -1,14 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
 import {Button} from "antd";
+import axios from "axios";
+import {useState} from "react"
 
 function App() {
+
+  const [value,setValue] = useState("no value");
+
+  const call = ()=>{
+    axios.get("/api/example")
+        .then(r=>setValue(r.data))
+        .catch(console.log)
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <p>
+          The value is {value}
         </p>
         <a
           className="App-link"
@@ -18,7 +32,7 @@ function App() {
         >
           Learn React
         </a>
-          <Button onClick={()=>alert("Hello")}>Request</Button>
+          <Button onClick={()=>call()}>Call Server</Button>
       </header>
     </div>
   );
