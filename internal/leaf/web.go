@@ -62,14 +62,11 @@ func (query TaskPageQuery) defaultPage() {
 
 func StartServer(port int) {
 	router,err := server.CreateMyServer( )
-
 	if err != nil {
 		panic(err)
 	}
 
 	router.GET("/api/env", env)
-
-	router.StaticFile("/index.html","build/index.html")
 	router.Use(cookieHandler).POST("/api/v1/login", loginC)
 
 	v1 := router.Group("/api/v1", authHandler)
