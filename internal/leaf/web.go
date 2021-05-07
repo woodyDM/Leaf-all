@@ -94,18 +94,10 @@ func StartServer(port int) {
 			env.POST("/delete", deleteEnvC)
 		}
 	}
-
-	err = router.Run(fmt.Sprintf(":%d",8080))
-
-	e := router.Run(fmt.Sprintf(":%d", port))
-	if e != nil {
-		panic(fmt.Sprintf("Failed to start server %s.", e.Error()))
+	err = router.Run(fmt.Sprintf(":%d",port))
+	if err != nil {
+		panic(fmt.Sprintf("Failed to start server %s.", err.Error()))
 	}
-}
-
-func indexPage(ctx *gin.Context) {
-
-	ctx.String(200,"OK index")
 }
 
 func loginC(ctx *gin.Context) {
