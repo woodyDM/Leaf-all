@@ -67,7 +67,6 @@ func StartServer(port int) {
 		panic(err)
 	}
 
-	router.GET("/api/health", health)
 	router.GET("/api/env", env)
 
 	router.StaticFile("/index.html","build/index.html")
@@ -400,6 +399,3 @@ func saveApplication(c *gin.Context) {
 	}
 }
 
-func health(c *gin.Context) {
-	c.String(200, "Service is on v1.1")
-}

@@ -17,5 +17,4 @@ npm run build
 cd $SHELL_FOLDER
 echo "当前目录 ：`pwd`,拷贝文件"
 cp -rf ui/build/* build/static/
-cp Dockerfile build/
 echo "Package complete "
